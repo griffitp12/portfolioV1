@@ -1,0 +1,22 @@
+{
+  "name": "portfoliov1",
+  "version": "1.0.0",
+  "description": "Pete's Portfolio v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/griffitp12/portfolioV1.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "Pete Griffith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/griffitp12/portfolioV1/issues"
+  },
+  "homepage": "https://github.com/griffitp12/portfolioV1#readme"
+}
