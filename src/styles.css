@@ -105,12 +105,12 @@ h1 {
 	margin: 5px;
 	height: 100%;
 	width: 50%;
-	cursor: pointer;
 	padding: 0.5em;
 }
 
 .project-summary {
 	border: 1px solid black;
+	cursor: pointer;
 	background-color: rgb(95, 95, 95);
 }
 
@@ -124,10 +124,17 @@ h1 {
 	display: none;
 }
 
-.project-details-open {
-	display: block;
-	margin-top: 10px;
+.test {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 1s ease-in-out;
 }
+
+#state:checked ~ .test {
+	max-height: 100%
+}
+
+
 
 .footer {
 	background-color: rgb(0, 0, 0);
