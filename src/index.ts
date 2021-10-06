@@ -3,30 +3,26 @@
 const handleClick = (e: Event) => {
 	const target = e.target as Element
 	if (target.tagName === 'DIV') {
-		const sibling = target.nextElementSibling
-		toggleClass(sibling as Element, 'project-details', 'project-details-open')
+		const sibling = target.nextElementSibling as Element
+		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id)
 	} else if (target.tagName === 'P') {
-		const aunt = target.parentElement?.nextElementSibling
-		toggleClass(aunt as Element, 'project-details', 'project-details-open')
+		const aunt = target.parentElement?.nextElementSibling as Element
+		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id)
 	}
-	/* if ((e.target as Element).querySelector('.project-details')) {
-		const target = (e.target as Element).querySelector('div') as Element
-		target.className = 'project-details-open'
-	} else {
-		const target = (e.target as Element).querySelector('div') as Element
-		console.log(target)
-		target.className = 'project-details'
-	} */
 }
 
-const toggleClass = (target: Element, class1: string, class2: string): void => {
+const toggleClasses = (target: Element, class1: string, class2: string, targetId: string): void => {
 	if (target.className === class1) {
-		console.log(class2)
 		target.className = class2
-		console.log('class1', target.className)
+		projectDetails.forEach((detail) => {
+			if (detail) {
+				if (detail.id !== targetId) {
+					detail.className = class1
+				}
+			}
+		})
 	} else if (target.className === class2) {
 		target.className = class1
-		console.log('class2', target.className)
 	} else {
 		console.log('something is wrong with the toggleClass function')
 	}
@@ -34,14 +30,15 @@ const toggleClass = (target: Element, class1: string, class2: string): void => {
 
 // selectors
 
-/* const projectBoxes = document.querySelectorAll('.project-container') */
 const projectSummaries = document.querySelectorAll('.project-summary')
 
-// events
+const projectDetails = Array.from(projectSummaries).map((summary) => {
+	if (summary.nextElementSibling) {
+		return summary.nextElementSibling
+	}
+})
 
-/* if (projectBoxes) {
-	projectBoxes.forEach(box => box.addEventListener('click', handleClick))
-} */
+// events
 if (projectSummaries) {
 	projectSummaries.forEach((summary) => summary.addEventListener('click', handleClick))
 }
