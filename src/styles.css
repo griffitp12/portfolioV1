@@ -126,12 +126,15 @@ h1 {
 
 .project-container {
 	margin: 5px;
-	height: 100%;
 	width: 50%;
-	cursor: pointer;
 	padding: 0 1em;
 	background-color: rgba(95, 95, 95, 0.2);
 	border-radius: 5px;
+}
+
+.project-summary {
+	cursor: pointer;
+	height: calc(1em + 32px);
 }
 
 .app-name {
@@ -151,10 +154,9 @@ h1 {
 }
 
 #state:checked ~ .test {
-	max-height: 100%
+	max-height: 100%;
+	transition: all 1s ease-in-out;
 }
-
-
 
 .footer {
 	background-color: transparent;
