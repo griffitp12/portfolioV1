@@ -69,6 +69,7 @@ body {
 
 .grid-content {
 	grid-column: 3/4;
+	font-family: 'Poppins';
 }
 
 h1 {
@@ -76,40 +77,40 @@ h1 {
 }
 
 .yellow-text-before {
-	transition: 1s; 
+	transition: 1s;
 }
 
 .yellow-text-after {
 	color: yellow;
-	transition: 1s; 
+	transition: 1s;
 }
 
 .headshot {
 	max-width: 30%;
-	opacity: .5;
+	opacity: 0.5;
 	height: auto;
 	border-radius: 50%;
 	align-self: center;
 	justify-self: center;
-	transition: 1s
+	transition: 1s;
 }
 
 .headshot:hover {
 	opacity: 1;
-	transition: 1s
+	transition: 1s;
 }
 
 .headshot:hover ~ .yellow-text {
-	color: yellow
+	color: yellow;
 }
 
-.stats-header {
+.aboutme-header {
 	grid-row: 2/3;
 }
 
-.stats {
+.aboutme {
 	grid-row: 2/3;
-	background-color: rgba(95, 95, 95, .2);
+	background-color: rgba(95, 95, 95, 0.2);
 	max-width: 40vw;
 	justify-self: center;
 	padding: 1em;
@@ -129,7 +130,7 @@ h1 {
 	width: 50%;
 	cursor: pointer;
 	padding: 0 1em;
-	background-color: rgba(95, 95, 95, .2);
+	background-color: rgba(95, 95, 95, 0.2);
 	border-radius: 5px;
 }
 
@@ -151,7 +152,6 @@ h1 {
 .footer {
 	background-color: transparent;
 	color: white;
-	position: fixed;
 	bottom: 0;
 	width: 100%;
 	height: 7vh;

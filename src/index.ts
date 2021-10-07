@@ -1,13 +1,18 @@
 // functions
 
 const handleProjectClick = (e: Event) => {
+	console.log(e.target)
 	const target = e.target as Element
 	if (target.tagName === 'DIV') {
+		// in the current iteration, this will never be DIV
 		const sibling = target.nextElementSibling as Element
 		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails)
 	} else if (target.tagName === 'P') {
 		const aunt = target.parentElement?.nextElementSibling as Element
 		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails)
+	} else if (target.tagName === 'SPAN') {
+		const greatAunt = target.parentElement?.parentElement?.nextElementSibling as Element
+		toggleClasses(greatAunt, 'project-details', 'project-details-open', greatAunt.id, projectDetails)
 	}
 }
 
@@ -15,7 +20,7 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 	if (target.className === class1) {
 		target.className = class2
 		if (details) {
-			details!.forEach((detail) => {
+			details?.forEach((detail) => {
 				if (detail) {
 					if (detail.id !== targetId) {
 						detail.className = class1

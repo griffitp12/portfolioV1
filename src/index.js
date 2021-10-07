@@ -1,8 +1,10 @@
 "use strict";
 // functions
 const handleProjectClick = (e) => {
+    console.log(e.target);
     const target = e.target;
     if (target.tagName === 'DIV') {
+        // in the current iteration, this will never be DIV
         const sibling = target.nextElementSibling;
         toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails);
     }
@@ -10,12 +12,16 @@ const handleProjectClick = (e) => {
         const aunt = target.parentElement?.nextElementSibling;
         toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails);
     }
+    else if (target.tagName === 'SPAN') {
+        const greatAunt = target.parentElement?.parentElement?.nextElementSibling;
+        toggleClasses(greatAunt, 'project-details', 'project-details-open', greatAunt.id, projectDetails);
+    }
 };
 const toggleClasses = (target, class1, class2, targetId, details) => {
     if (target.className === class1) {
         target.className = class2;
         if (details) {
-            details.forEach((detail) => {
+            details?.forEach((detail) => {
                 if (detail) {
                     if (detail.id !== targetId) {
                         detail.className = class1;
