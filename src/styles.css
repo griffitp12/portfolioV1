@@ -147,6 +147,11 @@ h1 {
 	display: none;
 }
 
+.project-details-test1 {
+	height: 0px;
+	overflow: hidden
+}
+
 .test {
 	max-height: 0;
 	overflow: hidden;
