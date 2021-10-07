@@ -1,26 +1,28 @@
 // functions
 
-const handleClick = (e: Event) => {
+const handleProjectClick = (e: Event) => {
 	const target = e.target as Element
 	if (target.tagName === 'DIV') {
 		const sibling = target.nextElementSibling as Element
-		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id)
+		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails)
 	} else if (target.tagName === 'P') {
 		const aunt = target.parentElement?.nextElementSibling as Element
-		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id)
+		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails)
 	}
 }
 
-const toggleClasses = (target: Element, class1: string, class2: string, targetId: string): void => {
+const toggleClasses = (target: Element, class1: string, class2: string, targetId?: string, details?: (Element | undefined)[]): void => {
 	if (target.className === class1) {
 		target.className = class2
-		projectDetails.forEach((detail) => {
-			if (detail) {
-				if (detail.id !== targetId) {
-					detail.className = class1
+		if (details) {
+			details!.forEach((detail) => {
+				if (detail) {
+					if (detail.id !== targetId) {
+						detail.className = class1
+					}
 				}
-			}
-		})
+			})
+		}
 	} else if (target.className === class2) {
 		target.className = class1
 	} else {
@@ -31,6 +33,9 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 // selectors
 
 const projectSummaries = document.querySelectorAll('.project-summary')
+const yellowTextName = document.querySelector('#yellow-text-name')
+const yellowTextDev = document.querySelector('#yellow-text-dev')
+const headshot = document.querySelector('.headshot')
 
 const projectDetails = Array.from(projectSummaries).map((summary) => {
 	if (summary.nextElementSibling) {
@@ -40,5 +45,14 @@ const projectDetails = Array.from(projectSummaries).map((summary) => {
 
 // events
 if (projectSummaries) {
-	projectSummaries.forEach((summary) => summary.addEventListener('click', handleClick))
+	projectSummaries.forEach((summary) => {
+		summary.addEventListener('click', handleProjectClick)
+		summary.addEventListener('mouseenter', () => toggleClasses(yellowTextDev as Element, 'yellow-text-before', 'yellow-text-after'))
+		summary.addEventListener('mouseleave', () => toggleClasses(yellowTextDev as Element, 'yellow-text-after', 'yellow-text-before'))
+	})
+}
+
+if (headshot) {
+	headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName as Element, 'yellow-text-before', 'yellow-text-after'))
+	headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName as Element, 'yellow-text-after', 'yellow-text-before'))
 }
