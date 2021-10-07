@@ -126,12 +126,15 @@ h1 {
 
 .project-container {
 	margin: 5px;
-	height: 100%;
 	width: 50%;
-	cursor: pointer;
 	padding: 0 1em;
 	background-color: rgba(95, 95, 95, 0.2);
 	border-radius: 5px;
+}
+
+.project-summary {
+	cursor: pointer;
+	height: calc(1em + 32px);
 }
 
 .app-name {
@@ -173,7 +176,7 @@ h1 {
 	width: 32px;
 	height: 32px;
 	display: inline-block;
-	text-indent: -10000px; 
+	text-indent: -10000px;
 	margin: 0 auto;
 }
 
