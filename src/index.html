@@ -4,6 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
 		<link rel="stylesheet" href="styles.css" />
 		<title>Document</title>
 	</head>
@@ -17,21 +19,23 @@
 			</div>
 		</div>
 		<!--MAIN CONTENT -->
-		<div class="content-container">
-			<div class="hero flex-container-column" id="aboutme">
+		<div class="content-grid-container">
+			<!-- HERO -->
+			<div class="grid-header flex-container-column" id="aboutme">
 				<h1>
-					Hi! My name is Pete Griffith. <br />
-					I'm a <span class="yellow-text">software developer</span>.
+					Hi!<br>My name is <span class="yellow-text-before" id="yellow-text-name">Pete Griffith</span>. <br />
+					I'm a <span class="yellow-text-before" id="yellow-text-dev">software developer</span>.
 				</h1>
-				<img src="assets/headshot.jpg" alt="Pete's Headshot" class="headshot" />
 			</div>
-			<h2 class="stats-header">Stats:</h2>
-			<div class="stats flex-container-column">
-				<h3>I live in the mountains of rural Niigata, Japan</h3>
-				<h3>I love to run, hike, and spend time with my family</h3>
+			<img src="assets/headshot.jpg" alt="Pete's Headshot" class="headshot grid-content" />
+			<!-- ABOUTME -->
+			<h2 class="aboutme-header grid-header">About Me:</h2>
+			<div class="aboutme grid-content flex-container-column">
+				<p>I live in the mountains of rural Niigata, Japan. I love to run, hike, and spend time with my family. Stay tuned for a more relevant and robust aboutme!</p>
 			</div>
-			<h2 class="projects-header">Projects:</h2>
-			<div class="projects flex-container-column" id="projects">
+			<!-- PROJECTS -->
+			<h2 class="projects-header grid-header">Projects:</h2>
+			<div class="projects grid-content flex-container-column" id="projects">
 				<div class="project-container">
 					<label for="state">
 						<div class="project-summary">
@@ -50,7 +54,7 @@
 					</div>
 				</div>
 				<div class="project-container">
-					<div class="project-summary ">
+					<div class="project-summary">
 						<p><span class="app-name">Spelling Game:</span> A Simple Game</p>
 					</div>
 					<div id="2" class="project-details">
@@ -65,7 +69,7 @@
 				</div>
 				<div class="project-container">
 					<div class="project-summary">
-						<p><span class="app-name">Daily Tracker:</span> A Welness Project</p>
+						<p><span class="app-name">Daily Tracker:</span> A Personal Welness Project</p>
 					</div>
 					<div id="3" class="project-details">
 						<p>An activity tracking app built to help me keep track of goals and habits</p>

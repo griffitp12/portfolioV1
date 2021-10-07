@@ -1,6 +1,7 @@
 body {
 	margin: 0 auto;
-	background-color: rgb(59, 59, 59);
+	background-image: linear-gradient(#3c3b3f, #659999);
+	font-family: 'Open Sans';
 }
 
 .flex-container-row {
@@ -18,7 +19,7 @@ body {
 }
 
 .header {
-	background-color: rgb(0, 0, 0);
+	background-color: transparent;
 	color: white;
 	height: 7.5vh;
 	top: 0;
@@ -37,6 +38,7 @@ body {
 	color: white;
 	cursor: pointer;
 	text-decoration: none;
+	font-weight: 600;
 }
 
 .header-navlink:visited {
@@ -49,69 +51,87 @@ body {
 	color: red;
 }
 
-.content-container {
-	margin-top: 7.5vh;
+.content-grid-container {
+	margin-top: 20vh;
 	display: grid;
-	grid-template-columns: auto 60vw auto;
-	grid-template-rows: auto auto;
+	grid-template-columns: 10vw 20vw 60vw 10vw;
+	grid-row-gap: 5vw;
+	grid-template-rows: auto;
 	color: white;
 	min-height: 100vh;
 }
 
-.hero {
+.grid-header {
 	grid-column: 2/3;
-}
-
-h1 {
-	text-align: center;
-}
-
-.yellow-text {
-	color: yellow;
-}
-
-.headshot {
-	height: 20vh;
-	border-radius: 50%;
-	border: 3px solid black;
-}
-
-.stats-header {
-	grid-row: 2/3;
-	grid-column: 1/2;
 	justify-self: end;
 	align-self: center;
 }
 
-.stats {
-	grid-column: 2/3;
+.grid-content {
+	grid-column: 3/4;
+	font-family: 'Poppins';
+}
+
+h1 {
+	text-align: end;
+}
+
+.yellow-text-before {
+	transition: 1s;
+}
+
+.yellow-text-after {
+	color: yellow;
+	transition: 1s;
+}
+
+.headshot {
+	max-width: 30%;
+	opacity: 0.5;
+	height: auto;
+	border-radius: 50%;
+	align-self: center;
+	justify-self: center;
+	transition: 1s;
+}
+
+.headshot:hover {
+	opacity: 1;
+	transition: 1s;
+}
+
+.headshot:hover ~ .yellow-text {
+	color: yellow;
+}
+
+.aboutme-header {
 	grid-row: 2/3;
+}
+
+.aboutme {
+	grid-row: 2/3;
+	background-color: rgba(95, 95, 95, 0.2);
+	max-width: 40vw;
+	justify-self: center;
+	padding: 1em;
 }
 
 .projects-header {
 	grid-row: 3/4;
-	grid-column: 1/2;
-	justify-self: end;
-	align-self: center;
 }
 
 .projects {
-	grid-column: 2/3;
 	grid-row: 3/4;
 }
 
 .project-container {
-	border: 1px solid black;
 	margin: 5px;
 	height: 100%;
 	width: 50%;
-	padding: 0.5em;
-}
-
-.project-summary {
-	border: 1px solid black;
 	cursor: pointer;
-	background-color: rgb(95, 95, 95);
+	padding: 0 1em;
+	background-color: rgba(95, 95, 95, 0.2);
+	border-radius: 5px;
 }
 
 .app-name {
@@ -137,28 +157,30 @@ h1 {
 
 
 .footer {
-	background-color: rgb(0, 0, 0);
+	background-color: transparent;
 	color: white;
 	bottom: 0;
+	width: 100%;
 	height: 7vh;
 	margin-top: 10px;
 	justify-content: space-between;
 }
 
 .design-tag {
-	font-size: .5em;
-	bottom: 0
+	font-size: 0.5em;
+	bottom: 0;
 }
 
 .icon-container {
 	margin: 6px 15px 6px 6px;
+	text-decoration: none;
 }
 
 .link-icon {
 	width: 32px;
 	height: 32px;
 	display: inline-block;
-	text-indent: -10000px; /* this hides the text */
+	text-indent: -10000px; 
 	margin: 0 auto;
 }
 
@@ -175,5 +197,5 @@ h1 {
 }
 
 .disabled {
-	pointer-events: none
+	pointer-events: none;
 }
