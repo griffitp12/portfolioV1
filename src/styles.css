@@ -166,13 +166,14 @@ h1 {
 
 .icon-container {
 	margin: 6px 15px 6px 6px;
+	text-decoration: none;
 }
 
 .link-icon {
 	width: 32px;
 	height: 32px;
 	display: inline-block;
-	text-indent: -10000px; /* this hides the text */
+	text-indent: -10000px; 
 	margin: 0 auto;
 }
 
