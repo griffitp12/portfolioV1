@@ -36,10 +36,6 @@ const toggleClasses = (target, class1, class2, targetId, details) => {
         console.log('something is wrong with the toggleClass function');
     }
 };
-const testAlert = () => {
-    console.log('now');
-    alert('now');
-};
 // selectors
 const projectSummaries = document.querySelectorAll('.project-summary');
 const yellowTextName = document.querySelector('#yellow-text-name');
@@ -64,5 +60,5 @@ if (headshot) {
     headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName, 'yellow-text-after', 'yellow-text-before'));
 }
 if (spellingGamePortal) {
-    spellingGamePortal.addEventListener('click', testAlert);
+    spellingGamePortal.addEventListener('click', () => alert('Coming Soon!');
 }
