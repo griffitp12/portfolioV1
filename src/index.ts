@@ -65,6 +65,7 @@ if (headshot) {
 
 if (spellingGamePortal) {
 	spellingGamePortal.addEventListener('click', () => {
+		console.log('click')
 		alert('Coming soon!')
 	})
 }
