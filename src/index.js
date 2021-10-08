@@ -42,6 +42,7 @@ const projectSummaries = document.querySelectorAll('.project-summary');
 const yellowTextName = document.querySelector('#yellow-text-name');
 const yellowTextDev = document.querySelector('#yellow-text-dev');
 const headshot = document.querySelector('.headshot');
+const spellingGamePortal = document.querySelector('#spelling-game-portal');
 const projectDetails = Array.from(projectSummaries).map((summary) => {
     if (summary.nextElementSibling) {
         return summary.nextElementSibling;
@@ -58,4 +59,9 @@ if (projectSummaries) {
 if (headshot) {
     headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName, 'yellow-text-before', 'yellow-text-after'));
     headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName, 'yellow-text-after', 'yellow-text-before'));
+}
+if (spellingGamePortal) {
+    spellingGamePortal.addEventListener('click', () => {
+        alert('Coming soon!');
+    });
 }

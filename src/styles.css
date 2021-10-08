@@ -195,3 +195,8 @@ h1 {
 .disabled {
 	pointer-events: none;
 }
+
+#spelling-game-portal {
+	cursor: pointer;
+	margin: 0;
+}
