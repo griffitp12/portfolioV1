@@ -35,6 +35,11 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 	}
 }
 
+const testAlert = () => {
+	console.log('now')
+	alert('now')
+}
+
 // selectors
 
 const projectSummaries = document.querySelectorAll('.project-summary')
@@ -64,8 +69,5 @@ if (headshot) {
 }
 
 if (spellingGamePortal) {
-	spellingGamePortal.addEventListener('click', () => {
-		console.log('click')
-		alert('Coming soon!')
-	})
+	spellingGamePortal.addEventListener('click', testAlert)
 }
