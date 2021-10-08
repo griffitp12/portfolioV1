@@ -43,7 +43,7 @@ const headshot = document.querySelector('.headshot')
 const spellingGamePortal = document.querySelector('#spelling-game-portal')
 
 const projectDetails: HTMLElement[] = Array.from(projectSummaries).map((summary) => {
-	if (typeof summary.nextElementSibling !== null) {
+	if (summary.nextElementSibling) {
 		return summary.nextElementSibling
 	}
 })
@@ -63,5 +63,5 @@ if (headshot) {
 }
 
 if (spellingGamePortal) {
-	spellingGamePortal.addEventListener('click', () => alert('Coming Soon!');
+	spellingGamePortal.addEventListener('click', () => alert('Coming Soon!'))
 }
