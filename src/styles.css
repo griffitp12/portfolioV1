@@ -143,14 +143,18 @@ h1 {
 }
 
 .project-details {
-	height: 0px;
-	display: none;
+	height: auto;
+	max-height: 0;
+	overflow: hidden;
+	transition: all 1s;
+}
+.project-details-open {
+	height: auto;
+	max-height: 226px;
+	overflow: hidden;
+	transition: all 1s;
 }
 
-.project-details-open {
-	display: block;
-	margin-top: 10px;
-}
 
 .footer {
 	background-color: transparent;
