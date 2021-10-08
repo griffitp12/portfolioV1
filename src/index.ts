@@ -34,12 +34,6 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 		console.log('something is wrong with the toggleClass function')
 	}
 }
-
-const testAlert = () => {
-	console.log('now')
-	alert('now')
-}
-
 // selectors
 
 const projectSummaries: NodeListOf<HTMLElement> = document.querySelectorAll('.project-summary')
@@ -69,5 +63,5 @@ if (headshot) {
 }
 
 if (spellingGamePortal) {
-	spellingGamePortal.addEventListener('click', testAlert)
+	spellingGamePortal.addEventListener('click', () => alert('Coming Soon!');
 }
