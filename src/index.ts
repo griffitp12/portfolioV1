@@ -9,7 +9,7 @@ const handleProjectClick = (e: Event) => {
 		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails)
 	} else if (target.tagName === 'P') {
 		const aunt = target.parentElement?.nextElementSibling as Element
-		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails)
+		toggleClasses(aunt, 'project-details-test2', 'project-details-open-test2', aunt.id, projectDetails)
 	} else if (target.tagName === 'SPAN') {
 		const greatAunt = target.parentElement?.parentElement?.nextElementSibling as Element
 		toggleClasses(greatAunt, 'project-details', 'project-details-open', greatAunt.id, projectDetails)

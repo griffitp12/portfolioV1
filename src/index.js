@@ -10,7 +10,7 @@ const handleProjectClick = (e) => {
     }
     else if (target.tagName === 'P') {
         const aunt = target.parentElement?.nextElementSibling;
-        toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails);
+        toggleClasses(aunt, 'project-details-test2', 'project-details-open-test2', aunt.id, projectDetails);
     }
     else if (target.tagName === 'SPAN') {
         const greatAunt = target.parentElement?.parentElement?.nextElementSibling;

@@ -147,20 +147,27 @@ h1 {
 	display: none;
 }
 
-.project-details-test1 {
-	height: 0px;
-	overflow: hidden
+.project-details-test2 {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 5s;
+	height: auto;
+}
+.project-details-open-test2 {
+	transition: all 5s;
+	height: auto;
+	max-height: 500px;
 }
 
 .test {
 	max-height: 0;
 	overflow: hidden;
-	transition: all 1s ease-in-out;
+	transition: all .7s ease-in-out;
 }
 
 #state:checked ~ .test {
 	max-height: 100%;
-	transition: all 1s ease-in-out;
+	transition: all .7s ease-in-out;
 }
 
 .footer {
