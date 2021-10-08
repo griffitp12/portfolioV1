@@ -143,25 +143,18 @@ h1 {
 }
 
 .project-details {
+	height: auto;
 	max-height: 0;
 	overflow: hidden;
-	transition: all 5s;
-	height: auto;
-	opacity: 1; /* let's make this 0 after we figure everything out */
+	transition: all 1s;
 }
 .project-details-open {
-	transition: all 5s;
 	height: auto;
-	max-height: 500px;
-	opacity: 1;
+	max-height: 226px;
+	overflow: hidden;
+	transition: all 1s;
 }
 
-.p-test {
-	max-height: inherit;
-	overflow: inherit;
-	transition: inherit;
-	height:inherit;
-}
 
 .footer {
 	background-color: transparent;

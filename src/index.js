@@ -1,7 +1,6 @@
 "use strict";
 // functions
 const handleProjectClick = (e) => {
-    console.log(e.target);
     const target = e.target;
     if (target.tagName === 'DIV') {
         // in the current iteration, this will never be DIV
@@ -11,7 +10,6 @@ const handleProjectClick = (e) => {
     else if (target.tagName === 'P') {
         const aunt = target.parentElement?.nextElementSibling;
         toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails);
-        toggleClasses(aunt.children[0], 'project-details', 'project-details-open', aunt.id, projectDetails);
     }
     else if (target.tagName === 'SPAN') {
         const greatAunt = target.parentElement?.parentElement?.nextElementSibling;
@@ -19,17 +17,17 @@ const handleProjectClick = (e) => {
     }
 };
 const toggleClasses = (target, class1, class2, targetId, details) => {
+    if (details) {
+        details?.forEach((detail) => {
+            if (detail) {
+                if (detail.id !== targetId) {
+                    detail.className = class1;
+                }
+            }
+        });
+    }
     if (target.className === class1) {
         target.className = class2;
-        if (details) {
-            details?.forEach((detail) => {
-                if (detail) {
-                    if (detail.id !== targetId) {
-                        detail.className = class1;
-                    }
-                }
-            });
-        }
     }
     else if (target.className === class2) {
         target.className = class1;
@@ -44,7 +42,7 @@ const yellowTextName = document.querySelector('#yellow-text-name');
 const yellowTextDev = document.querySelector('#yellow-text-dev');
 const headshot = document.querySelector('.headshot');
 const projectDetails = Array.from(projectSummaries).map((summary) => {
-    if (summary.nextElementSibling) {
+    if (typeof summary.nextElementSibling !== null) {
         return summary.nextElementSibling;
     }
 });
