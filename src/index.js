@@ -11,6 +11,7 @@ const handleProjectClick = (e) => {
     else if (target.tagName === 'P') {
         const aunt = target.parentElement?.nextElementSibling;
         toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails);
+        toggleClasses(aunt.children[0], 'project-details', 'project-details-open', aunt.id, projectDetails);
     }
     else if (target.tagName === 'SPAN') {
         const greatAunt = target.parentElement?.parentElement?.nextElementSibling;
