@@ -3,20 +3,13 @@
 const handleProjectClick = (e) => {
     const target = e.currentTarget;
     const sibling = target.nextElementSibling;
+    toggleClasses(sibling, 'project-details', 'project-details--open');
+    toggleOtherClasses(target.id, projectSummaries, 'project-details', 'project-details--open');
     const arrow = target.childNodes[0];
-    toggleClasses(sibling, 'project-details', 'project-details--open', sibling.id, projectDetails);
     toggleClasses(arrow, 'arrow-down', 'arrow-up');
+    toggleOtherClasses(target.id, projectSummaries, 'arrow-down', 'arrow-up');
 };
-const toggleClasses = (target, class1, class2, targetId, details) => {
-    if (details) {
-        details?.forEach((detail) => {
-            if (detail) {
-                if (detail.id !== targetId) {
-                    detail.className = class1;
-                }
-            }
-        });
-    }
+const toggleClasses = (target, class1, class2) => {
     if (target.classList.contains(class1)) {
         target.classList.replace(class1, class2);
     }
@@ -25,6 +18,20 @@ const toggleClasses = (target, class1, class2, targetId, details) => {
     }
     else {
         console.log('something is wrong with the toggleClass function');
+    }
+};
+const toggleOtherClasses = (targetId, elementList, class1, class2) => {
+    for (const element of elementList) {
+        if (element.id !== targetId) {
+            const sibling = element.nextElementSibling;
+            if (sibling && sibling.classList.contains(class2)) {
+                sibling.classList.replace(class2, class1);
+            }
+            const arrow = element.childNodes[0];
+            if (arrow && arrow.classList.contains(class2)) {
+                arrow.classList.replace(class2, class1);
+            }
+        }
     }
 };
 // selectors
@@ -36,11 +43,6 @@ const yellowTextName = document.querySelector('#name');
 const yellowTextDev = document.querySelector('#dev');
 const headshot = document.querySelector('.hero__headshot');
 const spellingGamePortal = document.querySelector('#spelling-game-portal');
-const projectDetails = Array.from(projectSummaries).map((summary) => {
-    if (summary.nextElementSibling) {
-        return summary.nextElementSibling;
-    }
-});
 // events
 if (projectSummaries) {
     projectSummaries.forEach((summary) => {
