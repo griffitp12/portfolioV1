@@ -25,11 +25,10 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 			}
 		})
 	}
-
-	if (target.className === class1) {
-		target.className = class2
-	} else if (target.className === class2) {
-		target.className = class1
+	if (target.classList.contains(class1)) {
+		target.classList.replace(class1, class2)
+	} else if (target.classList.contains(class2)) {
+		target.classList.replace(class2, class1)
 	} else {
 		console.log('something is wrong with the toggleClass function')
 	}
@@ -37,9 +36,9 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 // selectors
 
 const projectSummaries: NodeListOf<HTMLElement> = document.querySelectorAll('.project-summary')
-const yellowTextName = document.querySelector('#yellow-text-name')
-const yellowTextDev = document.querySelector('#yellow-text-dev')
-const headshot = document.querySelector('.headshot')
+const yellowTextName = document.querySelector('#name')
+const yellowTextDev = document.querySelector('#dev')
+const headshot = document.querySelector('.hero__headshot')
 const spellingGamePortal = document.querySelector('#spelling-game-portal')
 
 const projectDetails: HTMLElement[] = Array.from(projectSummaries).map((summary) => {
