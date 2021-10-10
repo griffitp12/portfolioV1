@@ -54,12 +54,14 @@ body {
 .content-grid-container {
 	margin-top: 20vh;
 	display: grid;
-	grid-template-columns: 10vw 20vw 60vw 10vw;
+	grid-template-columns: minmax(0, 1fr) 2fr 6fr minmax(0, 1fr);
 	grid-row-gap: 5vw;
 	grid-template-rows: auto;
 	color: white;
 	min-height: 100vh;
 }
+
+
 
 .grid-header {
 	grid-column: 2/3;
