@@ -210,26 +210,24 @@ body {
 	color: yellow;
 }
 
-.arrow-down {
+.arrow {
 	border: solid yellow;
 	border-width: 0 3px 3px 0;
 	display: inline-block;
 	padding: 3px;
-	transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
 	margin-right: 1em;
 	margin-bottom: .2em;
 	transition: all 1s
 }
+
+.arrow-down {
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
 .arrow-up {
-	border: solid yellow;
-	border-width: 0 3px 3px 0;
-	display: inline-block;
-	padding: 3px;
 	transform: rotate(-135deg);
 	-webkit-transform: rotate(-135deg);
-	margin-right: 1em;
-	transition: all 1s
 }
 
 .project-details {
