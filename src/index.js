@@ -1,20 +1,11 @@
 "use strict";
 // functions
 const handleProjectClick = (e) => {
-    const target = e.target;
-    if (target.tagName === 'DIV') {
-        // in the current iteration, this will never be DIV
-        const sibling = target.nextElementSibling;
-        toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails);
-    }
-    else if (target.tagName === 'P') {
-        const aunt = target.parentElement?.nextElementSibling;
-        toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails);
-    }
-    else if (target.tagName === 'SPAN') {
-        const greatAunt = target.parentElement?.parentElement?.nextElementSibling;
-        toggleClasses(greatAunt, 'project-details', 'project-details-open', greatAunt.id, projectDetails);
-    }
+    const target = e.currentTarget;
+    const sibling = target.nextElementSibling;
+    const arrow = target.childNodes[0];
+    toggleClasses(sibling, 'project-details', 'project-details--open', sibling.id, projectDetails);
+    toggleClasses(arrow, 'arrow-down', 'arrow-up');
 };
 const toggleClasses = (target, class1, class2, targetId, details) => {
     if (details) {
@@ -37,6 +28,9 @@ const toggleClasses = (target, class1, class2, targetId, details) => {
     }
 };
 // selectors
+const hamburgerMenu = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+const navlinks = document.querySelectorAll('.header-navlink');
 const projectSummaries = document.querySelectorAll('.project-summary');
 const yellowTextName = document.querySelector('#name');
 const yellowTextDev = document.querySelector('#dev');
@@ -51,14 +45,28 @@ const projectDetails = Array.from(projectSummaries).map((summary) => {
 if (projectSummaries) {
     projectSummaries.forEach((summary) => {
         summary.addEventListener('click', handleProjectClick);
-        summary.addEventListener('mouseenter', () => toggleClasses(yellowTextDev, 'yellow-text-before', 'yellow-text-after'));
-        summary.addEventListener('mouseleave', () => toggleClasses(yellowTextDev, 'yellow-text-after', 'yellow-text-before'));
+        summary.addEventListener('mouseenter', () => toggleClasses(yellowTextDev, 'yellow-text--before', 'yellow-text--after'));
+        summary.addEventListener('mouseleave', () => toggleClasses(yellowTextDev, 'yellow-text--after', 'yellow-text--before'));
     });
 }
 if (headshot) {
-    headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName, 'yellow-text-before', 'yellow-text-after'));
-    headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName, 'yellow-text-after', 'yellow-text-before'));
+    headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName, 'yellow-text--before', 'yellow-text--after'));
+    headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName, 'yellow-text--after', 'yellow-text--before'));
 }
 if (spellingGamePortal) {
     spellingGamePortal.addEventListener('click', () => alert('Coming Soon!'));
+}
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+        navbar?.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active');
+    });
+}
+if (navlinks) {
+    navlinks.forEach((navlink) => {
+        navlink.addEventListener('click', () => {
+            navbar?.classList.toggle('active');
+            hamburgerMenu?.classList.toggle('active');
+        });
+    });
 }

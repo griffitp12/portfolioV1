@@ -19,17 +19,70 @@ body {
 
 .header {
 	background-color: transparent;
-	color: white;
 	height: 7.5vh;
 	top: 0;
 	width: 100%;
+	overflow: visible;
 }
 
-.navlink-grid-container {
-	margin-right: 30px;
-	display: grid;
-	grid-template-columns: repeat(3, auto);
-	grid-gap: 20px;
+.hamburger {
+	float: right;
+	margin: 0;
+	transition: opacity 0.3s;
+	z-index: 1000;
+}
+
+.hamburger.active .line:nth-child(2) {
+	opacity: 0;
+}
+
+.hamburger.active .line:nth-child(1) {
+	transform: translateY(13px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(3) {
+	transform: translateY(-13px) rotate(-45deg);
+}
+
+.hamburger .line {
+	width: 50px;
+	height: 5px;
+	background: white;
+	margin: 8px 10px;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+}
+
+.navbar {
+	display: none;
+	float: top;
+	position: fixed;
+	top: 0;
+	padding: 60px 1em 1em 1em;
+	transition: all 1s ease-in-out;
+	background-color: rgb(95, 95, 95);
+	margin: 0;
+}
+
+.navbar.active {
+	display: block;
+	animation: fade 1s;
+}
+
+@keyframes fade {
+	from {
+		transform: translateY(-200px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.navbar ul {
+	list-style-type: none;
+	padding: 0;
 }
 
 .header-navlink {
@@ -37,6 +90,8 @@ body {
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: 600;
+	display: block;
+	margin: 1em 0;
 }
 
 .header-navlink:visited {
@@ -54,6 +109,8 @@ body {
 		'hero__blurb'
 		'aboutme__head'
 		'aboutme__content'
+		'skills__head'
+		'skills__content'
 		'projects__head'
 		'projects__content';
 	grid-template-columns: 1fr;
@@ -64,11 +121,10 @@ body {
 
 .content-box {
 	background-color: rgba(95, 95, 95, 0.4);
-	max-width: 100%;
 	justify-self: center;
 	padding: 0 1em;
 	border-radius: 10px;
-	margin: 5px
+	margin: 5px;
 }
 
 .hero__blurb {
@@ -83,7 +139,7 @@ body {
 	font-weight: 500;
 }
 
-.highlight{
+.highlight {
 	color: yellow;
 }
 
@@ -102,6 +158,16 @@ body {
 	grid-area: aboutme__content;
 }
 
+.skills__head {
+	margin-top: 20vh;
+	grid-area: skills__head;
+	justify-self: center;
+}
+
+.skills__content {
+	grid-area: skills__content;
+}
+
 .projects__head {
 	margin-top: 20vh;
 	grid-area: projects__head;
@@ -110,24 +176,33 @@ body {
 
 .projects__content {
 	grid-area: projects__content;
+	padding: 5px;
 }
 
 .grid-content {
 	font-family: 'Poppins';
 }
 
-.yellow-text-before {
+.yellow-text--before {
 	transition: 1s;
 }
 
-.yellow-text-after {
+.yellow-text--after {
 	color: yellow;
 	transition: 1s;
 }
 
+.project-container {
+	background-color: rgba(95, 95, 95, 0.4);
+	justify-self: center;
+	border-radius: 2px;
+	margin: 2px;
+}
+
 .project-summary {
 	cursor: pointer;
-	height: calc(1em + 32px);
+	padding: 8px;
+	margin: 0 auto;
 }
 
 .app-name {
@@ -135,17 +210,41 @@ body {
 	color: yellow;
 }
 
+.arrow-down {
+	border: solid yellow;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	margin-right: 1em;
+	margin-bottom: .2em;
+	transition: all 1s
+}
+.arrow-up {
+	border: solid yellow;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+	transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	margin-right: 1em;
+	transition: all 1s
+}
+
 .project-details {
 	height: auto;
 	max-height: 0;
 	overflow: hidden;
 	transition: all 1s;
+	padding: 0 8px;
 }
-.project-details-open {
+.project-details--open {
 	height: auto;
 	max-height: 226px;
 	overflow: hidden;
 	transition: all 1s;
+	padding: 0 8px;
 }
 
 .footer {
@@ -200,35 +299,53 @@ body {
 /* Non-Mobile */
 
 @media screen and (min-width: 768px) {
+	.hamburger {
+		display: none;
+	}
+
+	.navbar {
+		background: transparent;
+		position: static;
+		display: block;
+		padding: 0;
+		margin-right: 4em;
+		height: 7.5vh;
+	}
+
+	.navbar ul {
+		display: flex;
+		gap: 2em;
+	}
+
 	.content-grid-container {
-		grid-template-columns: 1fr 2fr;
+		grid-template-columns: 1fr 1fr 1fr;
 		grid-template-areas:
-			'hero__blurb hero__headshot'
-			'aboutme__head aboutme__content'
-			'projects__head projects__content';
+			'hero__blurb hero__blurb hero__headshot'
+			'aboutme__head aboutme__content aboutme__content'
+			'skills__head skills__content skills__content'
+			'projects__head projects__content projects__content';
 		margin: 10vh 15vw;
 		row-gap: 20vh;
 	}
 
-	.header {
-		position: fixed;
+	.content-box {
+		width: 100%
 	}
-
 	.highlight {
-		color: white
+		color: white;
 	}
 
-	.yellow-text-before {
-		transition: .7s;
+	.yellow-text--before {
+		transition: 0.7s;
 	}
-	
-	.yellow-text-after {
+
+	.yellow-text--after {
 		color: yellow;
-		transition: .7s;
+		transition: 0.7s;
 	}
 
 	.hero__headshot {
-		max-width: 30%;
+		max-width: 70%;
 		opacity: 0.5;
 		height: auto;
 		border-radius: 50%;
@@ -244,6 +361,10 @@ body {
 	}
 
 	.aboutme__head {
+		margin: auto;
+	}
+
+	.skills__head {
 		margin: auto;
 	}
 

@@ -11,54 +11,74 @@
 	</head>
 	<body>
 		<!-- HEADER -->
-		<div class="header flex-container-row">
-			<div class="navlink-grid-container">
-				<a href="#aboutme" class="header-navlink">ABOUT ME</a>
-				<a href="#projects" class="header-navlink">PROJECTS</a>
-				<a href="#footer" class="header-navlink">CONTACT</a>
+		<div class="header flex-container-row" id="header">
+			<div class="hamburger">
+				<div class="line"></div>
+				<div class="line"></div>
+				<div class="line"></div>
 			</div>
+			<menu class="navbar">
+				<ul>
+					<li><a href="#aboutme" class="header-navlink">ABOUT ME</a></li>
+					<li><a href="#skills" class="header-navlink">SKILLS</a></li>
+					<li><a href="#projects" class="header-navlink">PROJECTS</a></li>
+					<li><a href="#footer" class="header-navlink">CONTACT</a></li>
+				</ul>
+				<!-- <a href="#header" class="header-navlink">ABOUT ME</a>
+					<a href="#skills" class="header-navlink">SKILLS</a>
+					<a href="#projects" class="header-navlink">PROJECTS</a>
+					<a href="#footer" class="header-navlink">CONTACT</a> -->
+			</menu>
 		</div>
 		<!--MAIN CONTENT -->
 		<div class="content-grid-container">
 			<!-- HERO -->
-			<div class="hero__blurb content-box flex-container-column" id="aboutme">
+			<div class="hero__blurb content-box flex-container-column">
 				<p class="hero__blurb-greeting">Hi! My name is</p>
 				<h1 class="hero__blurb-body">
-					<span class="highlight yellow-text-before" id="name">Pete Griffith</span>. <br />
-					I'm a <span class="yellow-text-before" id="dev">software developer</span>.
+					<span class="highlight yellow-text--before" id="name">Pete Griffith</span>. <br />
+					I'm a <span class="yellow-text--before" id="dev">software developer</span>.
 				</h1>
 			</div>
 			<img src="assets/headshot.jpg" alt="Pete's Headshot" class="hero__headshot grid-content" />
 			<!-- ABOUTME -->
-			<h2 class="highlight aboutme__head">About Me:</h2>
+			<h2 class="highlight aboutme__head" id="aboutme">About Me:</h2>
 			<div class="aboutme__content content-box grid-content flex-container-column">
-				<p>I live in the mountains of rural Niigata, Japan. I love to run, hike, and spend time with my family. Stay tuned for a more relevant and robust aboutme!</p>
+				<p>
+					I'm a <span class="highlight yellow-text--before">Japan</span>-based software developer focused on building full stack applications and websites and commited to responsive, accessible, and
+					functional design.
+				</p>
+				<p>I've been in <span class="highlight yellow-text--before">Japan</span> for eleven years and love living in the mountains, running through rice paddies, and shoveling snow.</p>
+			</div>
+			<!-- SKILLS -->
+			<h2 class="highlight skills__head" id="skills">Skills:</h2>
+			<div class="skills__content content-box grid-content flex-container-column">
+				<p>JavaScript, TypeScript, HTML, CSS</p>
+				<p>Vue 2, Vue 3, Vuex, Composition API, Vuetify</p>
+				<p>Node.js, Express.js, Knex.js, GraphQL</p>
+				<p>PostgreSQL</p>
 			</div>
 			<!-- PROJECTS -->
-			<h2 class="highlight projects__head grid-header">Projects:</h2>
-			<div class="projects__content grid-content flex-container-column" id="projects">
+			<h2 class="highlight projects__head grid-header" id="projects">Projects:</h2>
+			<div class="projects__content grid-content flex-container-column content-box">
 				<!-- ONEROOF -->
-				<div class="content-box">
-					<div class="project-summary">
-						<p><span class="app-name">Oneroof:</span> A large-scale Vue PWA</p>
-					</div>
+				<div class="project-container">
+					<p class="project-summary"><i class="arrow-down"></i><span class="app-name">Oneroof:</span> A large-scale Vue PWA</p>
 					<div id="1" class="project-details">
 						<p>A communication and messaging app built for households, featuring group and private chat, shared todos, shopping lists, chore lists, and more</p>
 						<div class="flex-container-row">
 							<a target="_blank" rel="noopener noreferrer" href="https://github.com/FruityRaptors/OneRoof" class="icon-container">
 								<span class="github link-icon" role="link" aria-label="Github Link">Github Icon</span>
 							</a>
-							<a target="_blank" rel="noopener noreferrer" href="https://oneroof.dev" class="icon-container"> 
-								<span class="app link-icon" role="link" aria-label="OneRoof App Link">App Icon</span> 
+							<a target="_blank" rel="noopener noreferrer" href="https://oneroof.dev" class="icon-container">
+								<span class="app link-icon" role="link" aria-label="OneRoof App Link">App Icon</span>
 							</a>
 						</div>
 					</div>
 				</div>
 				<!-- SPELLING GAME -->
-				<div class="content-box">
-					<div class="project-summary">
-						<p><span class="app-name">Spelling Game:</span> A Simple Game</p>
-					</div>
+				<div class="project-container">
+					<p class="project-summary"><i class="arrow-down"></i><span class="app-name">Spelling Game:</span> A Simple Game</p>
 					<div id="2" class="project-details">
 						<p>A simple game made for my 3 year old son who is learning to read</p>
 						<div class="flex-container-row">
@@ -70,10 +90,8 @@
 					</div>
 				</div>
 				<!-- DAILY TRACKER -->
-				<div class="content-box">
-					<div class="project-summary">
-						<p><span class="app-name">Daily Tracker:</span> A Personal Wellness Project</p>
-					</div>
+				<div class="project-container">
+					<p class="project-summary"><i class="arrow-down"></i><span class="app-name">Daily Tracker:</span> A Personal Wellness Project</p>
 					<div id="3" class="project-details">
 						<p>An activity tracking app built to help me keep track of goals and habits</p>
 						<div class="flex-container-row">

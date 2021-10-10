@@ -1,18 +1,11 @@
 // functions
 
 const handleProjectClick = (e: Event) => {
-	const target = e.target as HTMLElement
-	if (target.tagName === 'DIV') {
-		// in the current iteration, this will never be DIV
-		const sibling = target.nextElementSibling as HTMLElement
-		toggleClasses(sibling, 'project-details', 'project-details-open', sibling.id, projectDetails)
-	} else if (target.tagName === 'P') {
-		const aunt = target.parentElement?.nextElementSibling as HTMLElement
-		toggleClasses(aunt, 'project-details', 'project-details-open', aunt.id, projectDetails)
-	} else if (target.tagName === 'SPAN') {
-		const greatAunt = target.parentElement?.parentElement?.nextElementSibling as HTMLElement
-		toggleClasses(greatAunt, 'project-details', 'project-details-open', greatAunt.id, projectDetails)
-	}
+	const target = e.currentTarget as HTMLElement
+	const sibling = target.nextElementSibling as HTMLElement
+	const arrow = target.childNodes[0] as HTMLElement
+	toggleClasses(sibling, 'project-details', 'project-details--open', sibling.id, projectDetails)
+	toggleClasses(arrow, 'arrow-down', 'arrow-up')
 }
 
 const toggleClasses = (target: Element, class1: string, class2: string, targetId?: string, details?: (HTMLElement | undefined)[]): void => {
@@ -35,11 +28,14 @@ const toggleClasses = (target: Element, class1: string, class2: string, targetId
 }
 // selectors
 
+const hamburgerMenu: HTMLElement | null = document.querySelector('.hamburger')
+const navbar: HTMLElement | null = document.querySelector('.navbar')
+const navlinks = document.querySelectorAll('.header-navlink')
 const projectSummaries: NodeListOf<HTMLElement> = document.querySelectorAll('.project-summary')
-const yellowTextName = document.querySelector('#name')
-const yellowTextDev = document.querySelector('#dev')
-const headshot = document.querySelector('.hero__headshot')
-const spellingGamePortal = document.querySelector('#spelling-game-portal')
+const yellowTextName: HTMLElement | null = document.querySelector('#name')
+const yellowTextDev: HTMLElement | null = document.querySelector('#dev')
+const headshot: HTMLElement | null = document.querySelector('.hero__headshot')
+const spellingGamePortal: HTMLElement | null = document.querySelector('#spelling-game-portal')
 
 const projectDetails: HTMLElement[] = Array.from(projectSummaries).map((summary) => {
 	if (summary.nextElementSibling) {
@@ -51,16 +47,32 @@ const projectDetails: HTMLElement[] = Array.from(projectSummaries).map((summary)
 if (projectSummaries) {
 	projectSummaries.forEach((summary) => {
 		summary.addEventListener('click', handleProjectClick)
-		summary.addEventListener('mouseenter', () => toggleClasses(yellowTextDev as Element, 'yellow-text-before', 'yellow-text-after'))
-		summary.addEventListener('mouseleave', () => toggleClasses(yellowTextDev as Element, 'yellow-text-after', 'yellow-text-before'))
+		summary.addEventListener('mouseenter', () => toggleClasses(yellowTextDev as Element, 'yellow-text--before', 'yellow-text--after'))
+		summary.addEventListener('mouseleave', () => toggleClasses(yellowTextDev as Element, 'yellow-text--after', 'yellow-text--before'))
 	})
 }
 
 if (headshot) {
-	headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName as Element, 'yellow-text-before', 'yellow-text-after'))
-	headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName as Element, 'yellow-text-after', 'yellow-text-before'))
+	headshot.addEventListener('mouseenter', () => toggleClasses(yellowTextName as Element, 'yellow-text--before', 'yellow-text--after'))
+	headshot.addEventListener('mouseleave', () => toggleClasses(yellowTextName as Element, 'yellow-text--after', 'yellow-text--before'))
 }
 
 if (spellingGamePortal) {
 	spellingGamePortal.addEventListener('click', () => alert('Coming Soon!'))
+}
+
+if (hamburgerMenu) {
+	hamburgerMenu.addEventListener('click', () => {
+		navbar?.classList.toggle('active')
+		hamburgerMenu.classList.toggle('active')
+	})
+}
+
+if (navlinks) {
+	navlinks.forEach((navlink) => {
+		navlink.addEventListener('click', () => {
+			navbar?.classList.toggle('active')
+			hamburgerMenu?.classList.toggle('active')
+		})
+	})
 }
