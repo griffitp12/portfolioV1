@@ -103,7 +103,7 @@ body {
 }
 
 .content-grid-container {
-	margin: 1em;
+	margin: 5vw;
 	display: grid;
 	grid-template-areas:
 		'hero__blurb'
@@ -176,7 +176,7 @@ body {
 
 .projects__content {
 	grid-area: projects__content;
-	padding: 5px;
+	padding: 1em;
 }
 
 .grid-content {
@@ -196,7 +196,8 @@ body {
 	background-color: rgba(95, 95, 95, 0.4);
 	justify-self: center;
 	border-radius: 2px;
-	margin: 2px;
+	margin: .2em 0;
+	min-width: 0;
 }
 
 .project-summary {
@@ -216,8 +217,8 @@ body {
 	display: inline-block;
 	padding: 3px;
 	margin-right: 1em;
-	margin-bottom: .2em;
-	transition: all 1s
+	margin-bottom: 0.2em;
+	transition: all 1s;
 }
 
 .arrow-down {
@@ -322,12 +323,12 @@ body {
 			'aboutme__head aboutme__content aboutme__content'
 			'skills__head skills__content skills__content'
 			'projects__head projects__content projects__content';
-		margin: 10vh 15vw;
+		margin: 10vh 20vw;
 		row-gap: 20vh;
 	}
 
 	.content-box {
-		width: 100%
+		width: 100%;
 	}
 	.highlight {
 		color: white;
@@ -368,5 +369,9 @@ body {
 
 	.projects__head {
 		margin: auto;
+	}
+
+	.project-container {
+		min-width: calc(2em - 2(70vw / 3));
 	}
 }
