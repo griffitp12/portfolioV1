@@ -1,31 +1,31 @@
 {
-  "name": "portfoliov1",
-  "version": "1.0.0",
-  "description": "Pete's Portfolio v1",
-  "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/griffitp12/portfolioV1.git"
-  },
-  "keywords": [
-    "portfolio"
-  ],
-  "author": "Pete Griffith",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/griffitp12/portfolioV1/issues"
-  },
-  "homepage": "https://github.com/griffitp12/portfolioV1#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-html": "^6.2.0"
-  },
-  "dependencies": {
-    "typescript": "^4.4.3"
-  }
+	"name": "portfoliov1",
+	"version": "1.0.0",
+	"description": "Pete's Portfolio v1",
+	"main": "index.js",
+	"scripts": {
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/petegriffith/portfolioV1.git"
+	},
+	"keywords": [
+		"portfolio"
+	],
+	"author": "Pete Griffith",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/petegriffith/portfolioV1/issues"
+	},
+	"homepage": "https://github.com/petegriffith/portfolioV1#readme",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.33.0",
+		"@typescript-eslint/parser": "^4.33.0",
+		"eslint": "^7.32.0",
+		"eslint-plugin-html": "^6.2.0"
+	},
+	"dependencies": {
+		"typescript": "^4.4.3"
+	}
 }
