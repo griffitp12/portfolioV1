@@ -4,6 +4,11 @@ body {
 	font-family: 'Open Sans';
 }
 
+.BBS {
+	height: 400px;
+	width: 300px;
+}
+
 .flex-container-row {
 	display: flex;
 	justify-content: flex-end;
